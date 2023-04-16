@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Speech Emotion Recognition</title>
+</head>
+
+<body>
+    <a href="{{ url_for('index') }}" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 home-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+    </a>
+    <!-- <a href="{{ url_for('about') }}" title="About Us">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 aboutUs-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+        </svg>
+    </a> -->
+    <a href="{{ url_for('recent') }}" title="Recent Activity">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 recent-logo">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </a>
+
+    <div class="about" id="about">
+        <div class="aboutUs">
+            <a href="{{ url_for('index') }}" style="text-decoration:none; color:rgb(237, 230, 35);">
+                <h1 class="heading">Speech Emotion Recognition</h1>
+            </a>
+            <div class="about-txt">
+                <div class="intro">
+                    <p>
+                        This is Final Year Project of Group 38 of Rajiv Gandhi Institute of Technology made by Akash
+                        Sahani, Mohit Sancheti, Shivam Singh and Akash Solunke under the guidance of Prof. Preeti Satao.
+                        This is the project which will be useful for detecting the emotions of the people through their
+                        voice.
+                    </p> <br>
+                </div>
+                <!-- <h1>Abstract</h1> -->
+                <p>
+                    Speech emotion recognition is a technology to automatically obtain emotion types from given
+                    attributive segments. Speech emotion recognition takes speech as the carrier of emotion to study the
+                    formation and change of various emotions in speech, so that the computer can analyze the speaker's
+                    specific emotional situation through speech, so as to make human-computer interaction more
+                    humanized. In order to improve the accuracy of intelligent speech emotion recognition system, a
+                    speech emotion recognition model based on feature representation of convolutional neural network
+                    CNN( Convolution Neural Network) is proposed.
+                </p> <br>
+                <!-- <h1>Problem Statement</h1> -->
+                <p>
+                    We define a SER system as a collection of methodologies that process and classify speech signals to
+                    detect emotions embedded in them. Such a system can find use in a wide variety of application areas
+                    like interactive voice based assistant or caller-agent conversation analysis. In this study we
+                    attempt to detect underlying emotions in recorded speech by analyzing the acoustic features of the
+                    audio data of recordings. In this project, we will predict the emotion in the speech of a person’s
+                    audio on the given dataset using CNN and deep learning algorithms.
+                </p> <br>
+                <!-- <h1>Proposed System</h1> -->
+                <p>
+                    The SER task is divided into two main sections: features selection and classification. We will
+                    utilize deep learning technique for SER using Mel-scale filter bank speech spectrogram as an input
+                    feature. In our project we will combined two models: pretrained DenseNet for mel-spectrograms and
+                    CNN for mfccs using Crowd-sourced Emotional Mutimodal Actors Dataset (Crema-D), Ryerson AudioVisual
+                    Database of Emotional Speech and Song (Ravdess), Surrey Audio-Visual Expressed Emotion (Savee) and
+                    Toronto emotional speech set (Tess) datasets.
+                </p> <br>
+                <div class="sysFlow">
+                    <h1 style="text-align:center; font-size:2.5rem"> System Flow </h1> <br>
+                    <div class="imgInside" style="display:flex; justify-content: center;">
+                        <img src="../static/images/SystemFlow.png" alt="System Flow" style="height:20rem; width:50rem;">
+                    </div>
+                </div>
+                <div class="algo">
+                    <h1 style="text-align:center; font-size:2.5rem; padding-top:2rem;"> Algorithm </h1> <br>
+                    <div class="imgInside" style="display:flex; justify-content: center;">
+                        <img src="../static/images/algo.png" alt="Algorithm" style="height:15rem; width:35rem;">
+                    </div>
+                    <li>
+                        A Convolutional Neural Network (CNN) is a type of deep learning algorithm that is particularly
+                        well-suited for image recognition and processing tasks. It is made up of multiple layers,
+                        including convolutional layers, pooling layers, and fully connected layers.
+                    </li>
+                    <li>
+                        The convolutional layers are the key component of a CNN, where filters are applied to the input
+                        image to extract features such as edges, textures, and shapes. The output of the convolutional
+                        layers is then passed through pooling layers, which are used to down-sample the feature maps,
+                        reducing the spatial dimensions while retaining the most important information. The output of
+                        the pooling layers is then passed through one or more fully connected layers, which are used to
+                        make a prediction or classify the image.
+                    </li>
+                    <li>
+                        CNNs are trained using a large dataset of labeled images, where the network learns to recognize
+                        patterns and features that are associated with specific objects or classes. Once trained, a CNN
+                        can be used to classify new images, or extract features for use in other applications such as
+                        object detection or image segmentation.
+                    </li>
+                </div>
+                <div class="methodology" style="padding-top: 2rem;">
+                    <h1 style="text-align:center; font-size:2.5rem; padding-top:2rem;"> Methodology </h1> <br>
+                    <div class="imgInside" style="display:flex; justify-content: center;">
+                        <img src="../static/images/methodology.PNG" alt="Methodology"
+                            style="height:30rem; width:40rem;">
+                    </div>
+                </div>
+                <div class="ack" style="margin:2rem;">
+                    <h1 style="text-align:center; font-size:2.5rem; padding-top:2rem;"> Acknowledgement </h1> <br>
+                    <p>
+                        We wish to express our sincere gratitude to Dr. Sanjay U. Bokade, Principal and Prof. S. P.
+                        Khachane, H.O.D. of Department Computer Engineering of Rajiv Gandhi Institute of Technology for
+                        providing
+                        us an opportunity to do our project work on “Human Computer Interaction”. This project bears on
+                        imprint of many peoples. We sincerely thank our project guide Dr. Sharmila Rathod for her
+                        guidance and
+                        encouragement in carrying out this synopsis work. Finally, we would like to thank our colleagues
+                        and friends who helped us in completing project work successfully
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+</script>
+
+</html>

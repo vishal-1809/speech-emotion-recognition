@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Speech Emotion Recognition</title>
+</head>
+
+<body>
+    <div id="Mic">
+        <div class="micGif">
+            <img src="../static/images/mic.gif" alt="Mic">
+        </div>
+    </div>
+    <div class="recognize" id="recognize">
+        <a href="{{ url_for('index') }}" style="text-decoration:none; color:rgb(237, 230, 35);">
+            <h1 class="heading">Speech Emotion Recogniton</h1>
+        </a>
+        <div class="sp">
+            <div id="speechContainer">
+                <form method="post" enctype="multipart/form-data" class="form">
+                    <div class="bx">
+                        <div class="box1" onmouseover="hovering()">
+                            <div class="pack">
+                                <p class="para">Upload the exisiting file
+                                    to recognize the emotions of the audio.
+                                </p>
+                                <!-- <h1 style="text-align:center;">Upload new File</h1> -->
+                                <input type="file" name="file" class="file button-87" id="file" />
+                            </div>
+                        </div>
+                        <div class="box2" onmouseover="hoverout()">
+                            <div class="pack">
+                                <p class="para">Record an audio
+                                    to recognize the emotions of the audio.
+                                </p>
+                                <input type="text" id="isRecording" name="record">
+                                <div style="display:flex; justify-content:center;">
+                                    <button onclick="recorder()" type="button" class="button-87">Record</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="pack1">
+                        <input type="text" id="mfccs" name="mfccs">
+                        <button onclick="first()" class="button-87" id="mfccs-btn">Mfccs</button>
+
+                        <input type="text" id="mel-spec" name="mel_spec">
+                        <button onclick="second()" class="button-87" id="mel-spec-btn">Mel-spec</button>
+                    </div> -->
+
+                    <div class="pack1">
+                        <button class="button-87" onclick="sub()">Recognize</button>
+                        <input type="submit" id="submitButton" class="button-87" value="Check" />
+                    </div>
+                </form>
+
+                {% if transcript == "1": %}
+                <div class="result" id="result">
+                    <h1 class="heading res-title">Result</h1>
+                    <div class="pack1">
+                        <button class="button-87" onclick="mfccs()">MFCCS</button>
+                        <button class="button-87" onclick="mel_spec()">Mel-Spectrum</button>
+                    </div>
+                    <div class="adjuster">
+                        <div class="clear-logo" onclick="clearer()" title="Clear All">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                                stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                    d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="images">
+                        <div class="twoGrid">
+                            <div class="inTwoGrid">
+                                <img src="../static/images/temp7.png" alt="Gender" />
+                                <audio controls>
+                                    <source src="../static/audios/output.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div class="rect-images">
+                                <div id="noChange">
+                                    <img src="../static/images/temp1.png" alt="Wave-form" />
+                                </div>
+                                <div id="change">
+                                    <img src="../static/images/temp2.png" alt="Mfccs" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="twoImg" id="twoImg">
+                            <img src="../static/images/temp4.png" alt="Mfccs3" />
+                            <img src="../static/images/temp5.png" alt="Mfccs6" />
+                        </div>
+                        <div class="lastImg" id="lastImg">
+                            <img src="../static/images/temp6.png" alt="Mfccs7" />
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+
+    <a href="{{ url_for('index') }}" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 home-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+    </a>
+    <a href="{{ url_for('about') }}" title="About Us">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 aboutUs-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+        </svg>
+    </a>
+    <a href="{{ url_for('recent') }}" title="Recent Activity">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 recent-logo">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </a>
+
+</body>
+
+<script>
+    let val = '{{ transcript }}';
+    console.log('{{ transcript }}');
+    function recorder() {
+        // clearer();
+        document.getElementById('isRecording').value = "Recording";
+        document.getElementById('submitButton').click();
+        document.getElementById('Mic').style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('Mic').style.display = 'none';
+        }, 5000)
+        // visibler();
+    }
+    function sub() {
+        clearer();
+        document.getElementById('submitButton').click();
+        // visibler();
+    }
+    function mfccs() {
+        document.getElementById('change').innerHTML = `
+            <img src="../static/images/temp2.png" alt="Mfccs" />
+        `;
+        document.getElementById('twoImg').innerHTML = `
+            <img src="../static/images/temp4.png" alt="Mfccs3" />
+            <img src="../static/images/temp5.png" alt="Mfccs6" />
+        `;
+        document.getElementById('lastImg').innerHTML = `
+            <img src="../static/images/temp6.png" alt="Mfccs7" />
+        `;
+    }
+    function mel_spec() {
+        document.getElementById('change').innerHTML = `
+            <img src="../static/images/temp3.png" alt="Mel-spec"/>
+        `;
+        document.getElementById('twoImg').innerHTML = `
+            <img src="../static/images/temp9.png" alt="Mel-spec1" />
+            <img src="../static/images/temp10.png" alt="Mel-spec2" />
+        `;
+        document.getElementById('lastImg').innerHTML = `
+            <img src="../static/images/spectrum.png" alt="Spectrum" style="background-color:white;"/>
+        `;
+    }
+    function first() {
+        document.getElementById('mfccs').value = "mfccs";
+        document.getElementById('mel-spec').value = '';
+        if (val === "1") {
+            document.getElementById('change').innerHTML = `
+                <img src="../static/images/temp3.png" alt="Mel-spec" />
+            `;
+            document.getElementById('twoImg').innerHTML = `
+                <img src="../static/images/spectrum.png" alt="Spectrum"/>
+                <img src="../static/images/temp9.png" alt="Mel-spec1"/>
+            `;
+            document.getElementById('lastImg').innerHTML = `
+                <img src="../static/images/temp10.png" alt="Mel-spec2" />
+            `;
+        }
+        else {
+            clearer();
+            document.getElementById('submitButton').click();
+            visibler();
+        }
+    }
+    function second() {
+        console.log("second");
+        document.getElementById('mel-spec').value = "mel-spec";
+        document.getElementById('mfccs').value = '';
+        if (val === "1") {
+            document.getElementById('change').innerHTML = `
+                <img src="../static/images/temp2.png" alt="Mfccs" />
+            `;
+            document.getElementById('twoImg').innerHTML = `
+                <img src="../static/images/temp4.png" alt="Mfccs3" />
+                <img src="../static/images/temp5.png" alt="Mfccs6" />
+            `;
+            document.getElementById('lastImg').innerHTML = `
+                <img src="../static/images/temp6.png" alt="Mfccs7" />
+            `;
+        }
+        else {
+            clearer();
+            document.getElementById('submitButton').click();
+            visibler();
+        }
+    }
+
+    function hovering() {
+        document.getElementById('recognize').style.backgroundImage = "url('../static/images/robot.png')"
+    }
+    function hoverout() {
+        document.getElementById('recognize').style.backgroundImage = "url('../static/images/robot1.png')"
+    }
+
+    function clearer() {
+        document.getElementById('result').style.display = "none";
+    }
+    function visibler() {
+        document.getElementById('result').style.display = "block";
+    }
+</script>
+
+</html>

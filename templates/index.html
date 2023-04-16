@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Speech Emotion Recognition</title>
+</head>
+
+<body>
+    <div class="home">
+        <img src="../static/images/recobg.png" alt="Robot" class="robo">
+        <div class="content">
+            <h1>Speech Emotion Recognition using Machine Learning</h1>
+            <p>This is the act of recognizing the human emotions and affective states from speech</p>
+            <div class="btn">
+                <a href="{{ url_for('recognize') }}">
+                    <button class='glowing-btn'><span class='glowing-txt'>Get &nbsp;<span class='faulty-letter'>Started
+                                &nbsp;</span></span></button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <a href="{{ url_for('index') }}" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 home-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+    </a> -->
+    <a href="{{ url_for('about') }}" title="About Us">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 aboutUs-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+        </svg>
+    </a>
+    <a href="{{ url_for('recent') }}" title="Recent Activity">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 recent-logo">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </a>
+
+
+
+    <!-- <div id="speechContainer">
+        <h1>Upload new File</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file"/>
+            <br>
+            <input type="submit" id="submitButton" value="Check"/>
+        </form>
+
+        <div id="images">
+            <img src="../static/images/temp1.png" alt="images"/>
+            <img src="../static/images/temp2.png" alt="images"/>
+            <img src="../static/images/temp3.png" alt="images"/>
+            <img src="../static/images/temp4.png" alt="images"/>
+            <img src="../static/images/temp5.png" alt="images"/>
+            <img src="../static/images/temp6.png" alt="images"/>
+            <img src="../static/images/temp7.png" alt="images"/>
+            <img src="../static/images/spectrum.png" alt="images"/>
+            <img src="../static/images/temp9.png" alt="images"/>
+            <img src="../static/images/temp10.png" alt="images"/>
+        </div>
+    </div> -->
+
+</body>
+<script>
+
+</script>
+
+</html>

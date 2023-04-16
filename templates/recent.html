@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Speech Emotion Recognition</title>
+</head>
+
+<body>
+    <a href="{{ url_for('index') }}" title="Home">
+        <svg style="left: 87%;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6 home-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+    </a>
+    <a href="{{ url_for('about') }}" title="About Us">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 aboutUs-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+        </svg>
+    </a>
+    <!-- <a href="{{ url_for('recent') }}" title="Recent Activity">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 recent-logo">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </a> -->
+
+
+    <div class="recent">
+        <a href="{{ url_for('recognize') }}" style="text-decoration:none; color:rgb(237, 230, 35);">
+            <h1 class="heading">Speech Emotion Recognition</h1>
+        </a>
+        <div class="box">
+            <div class="text-content">Your recent activity</div>
+            <div class="grid">
+                <div class="boxes" onclick="view('1')">
+                    <img src="../static/last_nine/1/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/1/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="boxes" onclick="view('2')">
+                    <img src="../static/last_nine/2/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/2/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="boxes" onclick="view('3')">
+                    <img src="../static/last_nine/3/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/3/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="boxes" onclick="view('4')">
+                    <img src="../static/last_nine/4/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/4/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="boxes" onclick="view('5')">
+                    <img src="../static/last_nine/5/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/5/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="boxes" onclick="view('6')">
+                    <img src="../static/last_nine/6/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/6/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="boxes" onclick="view('7')">
+                    <img src="../static/last_nine/7/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/7/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="boxes" onclick="view('8')">
+                    <img src="../static/last_nine/8/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/8/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="boxes" onclick="view('9')">
+                    <img src="../static/last_nine/9/temp7.png" alt="Gender" class="gender-img">
+                    <audio controls>
+                        <source src="../static/last_nine/9/output.wav" type="audio/wav" class="wave">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            <input type="text" name="toView" id="toView">
+            <input type="submit" id="submitButton" value="Check" />
+        </form>
+
+    </div>
+
+</body>
+
+<script>
+    function view(val) {
+        document.getElementById('toView').value = val;
+        console.log('hello');
+        document.getElementById('submitButton').click();
+        <!-- document.getElementById('viewBtn').click(); -->
+    }
+</script>
+
+</html>

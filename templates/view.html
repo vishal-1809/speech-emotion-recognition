@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Speech Emotion Recognition</title>
+</head>
+
+<body>
+    <a href="{{ url_for('index') }}" title="Home">
+        <svg style="left:87%;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6 home-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+    </a>
+    <a href="{{ url_for('about') }}" title="About Us">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 aboutUs-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+        </svg>
+    </a>
+    <!-- <a href="{{ url_for('recent') }}" title="Recent Activity">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 recent-logo">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </a> -->
+
+    <!-- <div class="images">
+        <img src="../static/last_nine/view/temp1.png" alt="">
+        <img src="../static/last_nine/view/temp2.png" alt="">
+        <img src="../static/last_nine/view/temp3.png" alt="">
+        <img src="../static/last_nine/view/temp4.png" alt="">
+        <img src="../static/last_nine/view/temp5.png" alt="">
+        <img src="../static/last_nine/view/temp6.png" alt="">
+        <img src="../static/last_nine/view/temp7.png" alt="">
+        <img src="../static/last_nine/view/temp9.png" alt="">
+        <img src="../static/last_nine/view/temp10.png" alt="">
+        <img src="../static/last_nine/view/spectrum.png" alt="">
+        <audio controls>
+            <source src="../static/last_nine/view/output.wav" type="audio/wav" class="wave">
+            Your browser does not support the audio element.
+        </audio>
+    </div> -->
+
+    <div class="view">
+        <a href="{{ url_for('index') }}" style="text-decoration:none; color: rgb(237, 230, 35);">
+            <h1 class="heading">Speech Emotion Recognition</h1>
+        </a>
+        <div class="result" id="result">
+            <h1 class="heading res-title">Result</h1>
+            <div class="pack1">
+                <button class="button-87" onclick="mfccs()">MFCCS</button>
+                <button class="button-87" onclick="mel_spec()">Mel-Spectrum</button>
+            </div>
+            <div class="images">
+                <div class="twoGrid">
+                    <div class="inTwoGrid">
+                        <img src="../static/last_nine/view/temp7.png" alt="Gender" />
+                        <audio controls>
+                            <source src="../static/last_nine/view/output.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="rect-images">
+                        <div id="noChange">
+                            <img src="../static/last_nine/view/temp1.png" alt="Wave-form" />
+                        </div>
+                        <div id="change">
+                            <img src="../static/last_nine/view/temp2.png" alt="Mfccs" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="twoImg" id="twoImg">
+                    <img src="../static/last_nine/view/temp4.png" alt="Mfccs3" />
+                    <img src="../static/last_nine/view/temp5.png" alt="Mfccs6" />
+                </div>
+                <div class="lastImg" id="lastImg">
+                    <img src="../static/last_nine/view/temp6.png" alt="Mfccs7" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function mfccs() {
+        document.getElementById('change').innerHTML = `
+            <img src="../static/last_nine/view/temp2.png" alt="Mfccs" />
+        `;
+        document.getElementById('twoImg').innerHTML = `
+            <img src="../static/last_nine/view/temp4.png" alt="Mfccs3" />
+            <img src="../static/last_nine/view/temp5.png" alt="Mfccs6" />
+        `;
+        document.getElementById('lastImg').innerHTML = `
+            <img src="../static/last_nine/view/temp6.png" alt="Mfccs7" />
+        `;
+    }
+    function mel_spec() {
+        document.getElementById('change').innerHTML = `
+            <img src="../static/last_nine/view/temp3.png" alt="Mel-spec"/>
+        `;
+        document.getElementById('twoImg').innerHTML = `
+            <img src="../static/last_nine/view/temp9.png" alt="Mel-spec1" />
+            <img src="../static/last_nine/view/temp10.png" alt="Mel-spec2" />
+        `;
+        document.getElementById('lastImg').innerHTML = `
+            <img src="../static/last_nine/view/spectrum.png" alt="Spectrum" style="background-color:white"/>
+        `;
+    }
+</script>
+
+</html>
