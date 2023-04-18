@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Speech Emotion Recognition</title>
+</head>
+
+<body>
+    <a href="{{ url_for('index') }}" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 home-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+    </a>
+    <a href="{{ url_for('about') }}" title="About Us">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 aboutUs-logo">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+        </svg>
+    </a>
+    <a href="{{ url_for('recent') }}" title="Recent Activity">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 recent-logo">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </a>
+
+    <div class="use" id="use">
+        <div class="HowToUse">
+            <a href="{{ url_for('index') }}" style="text-decoration:none; color:rgb(237, 230, 35);">
+                <h1 class="heading">Speech Emotion Recognition</h1>
+            </a>
+        </div>
+        <div>
+            <p style="text-align: justify; margin-left: 8rem; margin-right:8rem; font-size: 1.5rem; margin-top: 2.5rem;">
+                Speech Emotion Recognition (SER) is the task of recognizing the emotion from speech irrespective of the semantic contents. However, emotions are subjective and even for humans it is hard to notate them in natural speech communication regardless of the meaning. Let see the demonstration of How to Use this project to recognize the emotions from the audio.
+            </p>
+        </div>
+        <h1 class="htu">How to Use?</span>
+            <div class="steps">
+                <div>
+                    <div class="step1">
+                        <h2>Step 1: Click on Get Started.</h2>
+                        <div style="display:flex;justify-content:center; "><img src="/static/output_images/home.png" alt="Home" class="outputImg"></div>
+                    </div>
+                    <div class="step2">
+                        <h2>Step 2: Choose the existing file or record a live audio to recognize the emotion.</h2>
+                        <div style="display:flex;justify-content:center; "><img src="/static/output_images/recognize.png" alt="Recognize" class="outputImg"></div>
+                    </div>
+                    <div class="step3">
+                        <h2>Step 3: After selecting the audio click on recognize.</h2>
+                        <div style="display:flex;justify-content:center; "><img src="/static/output_images/selected.png" alt="Selected Audio" class="outputImg"></div>
+                    </div>
+                    <div class="step4">
+                        <h2>Step 4: Now you can see the MFCCS result to view the Mel-spectrum result click on
+                            Mel-Spectrum.
+                        </h2>
+                        <div style="display:flex;justify-content:center; "><img src="/static/output_images/melspec.png" alt="Mel-Spectrum" class="outputImg"></div>
+                    </div>
+                    <div class="step5">
+                        <h2>Step 5: To check the recent activity click on the icon of Recent Activity.</h2>
+                        <div style="display:flex;justify-content:center; "><img src="/static/output_images/recent.png" alt="Recent Activity" class="icons"></div>
+                    </div>
+                    <div class="step6">
+                        <h2>Step 6: To view About Us page click on about us icon.</h2>
+                        <div style="display:flex;justify-content:center; "><img src="/static/output_images/about.png" alt="About Us" class="icons"></div>
+                    </div>
+                    <div class="step7">
+                        <h2>Step 7: To navigate back to the Home Page click on Home icon.
+                        </h2>
+                    <div style="display:flex;justify-content:center; "><img src="/static/output_images/homeIcon.png" alt="Home Icon" class="icons"></div>
+                </div>
+
+            </div>
+    </div>
+    </div>
+</body>
+
+<script>
+
+</script>
+
+</html>
