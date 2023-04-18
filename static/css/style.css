@@ -7,7 +7,7 @@
 } */
 body {
   background-color: #170d42;
-  color: rgb(237, 230, 35);;
+  color: rgb(237, 230, 35);
 }
 * {
   margin: 0;
@@ -20,7 +20,7 @@ body {
   --glow-color: rgb(237, 230, 35);
 }
 
-.home-logo, .recent-logo, .aboutUs-logo {
+.home-logo, .recent-logo, .aboutUs-logo, .use-logo {
   height: 3.5rem;
   width: 3.5rem;
   position: absolute;
@@ -30,15 +30,20 @@ body {
 
 .home-logo {
   top: 1rem;
-  left: 82%;
+  left: 77%;
 }
 
 .recent-logo {
   top: 1rem;
-  left: 87%;
+  left: 82%;
 }
 
 .aboutUs-logo {
+  top: 1rem;
+  left: 87%;
+}
+
+.use-logo {
   top: 1rem;
   left: 92%;
 }
@@ -557,6 +562,44 @@ body {
   font-size: 1.5rem;
   text-align: center;
   text-align: justify;
+}
+
+
+/* -----------------------------------------Use---------------------------------------------- */
+.outputImg {
+  height: 25rem;
+  width: 45rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.htu {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 3rem;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.step1, .step2, .step3, .step4, .step5, .step6, .step7 {
+  margin-left: 0rem;
+  align-items: center;
+  font-size: 1rem;
+  text-align: justify;
+  text-align: center;
+  padding: 1rem;
+  border: 2px solid rgb(237, 230, 35);
+  border-radius: 2rem;
+  margin: 2rem;
+}
+
+.icons {
+  height: 4rem;
+  width: 4.1rem;
 }
 
 
